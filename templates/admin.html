@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Administrador</title>
+</head>
+<body>
+    <h1>Modo Administrador</h1>
+    <ul>
+        {% for horario, nombres in citas.items() %}
+            <li>
+                <strong>{{ horario }}</strong>: {{ nombres|join(", ") }}
+                <form action="/borrar" method="post" style="display:inline;">
+                    <input type="hidden" name="horario" value="{{ horario }}">
+                    <button type="submit">Borrar</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+    <a href="/">Volver</a>
+</body>
+</html>
