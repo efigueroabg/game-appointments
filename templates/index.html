@@ -1,37 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Agendar Cita</title>
-</head>
+<head><title>Agendar Cita</title></head>
 <body>
-    <h1>Agendar Cita</h1>
-    <form action="/agendar" method="post">
-        Nombre: <input type="text" name="nombre" required>
-        <br>
-        Horario:
-        <select name="horario">
-            {% for h in intervalos %}
-                {% set ocupantes = citas.get(h, []) %}
-                {% if ocupantes|length < 2 %}
-                    <option value="{{ h }}">{{ h }} ({{ ocupantes|length }}/2)</option>
-                {% endif %}
-            {% endfor %}
-        </select>
-        <br>
-        <button type="submit">Agendar</button>
-    </form>
+<h2>Agendar Cita</h2>
+<form method="POST" action="/agendar">
+  Nombre: <input type="text" name="nombre" required><br>
+  Horario:
+  <select name="horario">
+    {% for h in horarios %}
+      {% if citas.get(h, [])|length < 2 %}
+        <option value="{{ h }}">{{ h }}</option>
+      {% endif %}
+    {% endfor %}
+  </select><br>
+  <button type="submit">Agendar</button>
+</form>
 
-    <h2>Citas Agendadas</h2>
-    <ul>
-        {% for horario, nombres in citas.items() %}
-            <li><strong>{{ horario }}</strong>: {{ nombres|join(", ") }}</li>
-        {% endfor %}
-    </ul>
+<h3>Citas Agendadas</h3>
+<ul>
+  {% for h, nombres in citas.items() %}
+    <li><strong>{{ h }}</strong>: {{ nombres|join(', ') }}</li>
+  {% endfor %}
+</ul>
 
-    <h2>Modo Administrador</h2>
-    <form action="/admin" method="post">
-        Clave: <input type="password" name="clave">
-        <button type="submit">Entrar</button>
-    </form>
+<a href="/admin">Modo Administrador</a>
 </body>
 </html>
