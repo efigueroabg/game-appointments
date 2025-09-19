@@ -1,28 +1,53 @@
 <!DOCTYPE html>
-<html>
-<head><title>Agendar Cita</title></head>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agenda de Citas Gamer</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
 <body>
-<h1>Agendar Cita</h1>
-<form method="post" action="/agendar">
-  Nombre: <input type="text" name="nombre"><br>
-  Horario:
-  <select name="horario">
-    {% for h in horarios %}
-      {% if citas.get(h) and citas[h]|length >= 2 %}
-        <option value="{{ h }}" disabled>{{ h }} (Lleno)</option>
-      {% else %}
-        <option value="{{ h }}">{{ h }}</option>
-      {% endif %}
-    {% endfor %}
-  </select><br>
-  <input type="submit" value="Agendar">
-</form>
-<h2>Citas Agendadas</h2>
-<ul>
-  {% for h, nombres in citas.items() %}
-    <li><strong>{{ h }}</strong>: {{ nombres|join(", ") }}</li>
-  {% endfor %}
-</ul>
-<a href="/admin">Modo Administrador</a>
+  <header>
+    <h1>🎮 Agenda de Citas Gamer</h1>
+    <p>Reserva tu turno para jugar en consola</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Agendar Cita</h2>
+      <form id="bookingForm">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="fecha">Fecha:</label>
+        <input type="date" id="fecha" name="fecha" required />
+
+        <label for="hora">Hora:</label>
+        <select id="hora" name="hora" required></select>
+
+        <button type="submit">Agendar</button>
+      </form>
+    </section>
+
+    <section class="admin-section">
+      <h2>Modo Admin</h2>
+      <form id="adminForm">
+        <label for="clave">Clave:</label>
+        <input type="password" id="clave" name="clave" required />
+        <button type="submit">Entrar</button>
+      </form>
+    </section>
+
+    <section class="citas-section">
+      <h2>Citas Agendadas</h2>
+      <ul id="listaCitas"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>Hecho con cariño por kike 💙</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
