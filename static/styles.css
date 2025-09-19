@@ -1,55 +1,45 @@
 body {
-  font-family: 'Press Start 2P', cursive;
-  background: url('https://www.transparenttextures.com/patterns/dark-mosaic.png') repeat, #0f0f0f;
-  color: #00ffcc;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #1e1e2f, #2c2c3e);
+  color: #f0f0f0;
   margin: 0;
   padding: 0;
 }
-
 header {
   text-align: center;
   padding: 2rem;
-  background-color: #1a1a2e;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+  background-color: #3f3f5f;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
-
 header h1 {
   margin: 0;
-  font-size: 2rem;
-  color: #ff00cc;
+  font-size: 2.5rem;
 }
-
 header p {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #ccc;
 }
-
 main {
   padding: 2rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
 }
-
 section {
   background-color: #2a2a3d;
   padding: 1.5rem;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
 }
-
 h2 {
   margin-top: 0;
   color: #00ffd5;
-  font-size: 1.2rem;
 }
-
 label {
   display: block;
   margin-top: 1rem;
   margin-bottom: 0.5rem;
 }
-
 input, select, button {
   width: 100%;
   padding: 0.7rem;
@@ -57,38 +47,31 @@ input, select, button {
   border: none;
   margin-bottom: 1rem;
   font-size: 1rem;
-  background-color: #1a1a2e;
-  color: #00ffcc;
 }
-
 button {
-  background-color: #ff00cc;
-  color: #fff;
+  background-color: #00ffd5;
+  color: #1e1e2f;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
 }
-
 button:hover {
-  background-color: #cc00aa;
+  background-color: #00c9aa;
 }
-
 ul {
   list-style: none;
   padding: 0;
 }
-
 li {
   background-color: #3f3f5f;
   padding: 0.8rem;
   margin-bottom: 0.5rem;
   border-radius: 5px;
 }
-
 footer {
   text-align: center;
   padding: 1rem;
-  background-color: #1a1a2e;
+  background-color: #1e1e2f;
   font-size: 0.9rem;
   color: #aaa;
 }

@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const bookingForm = document.getElementById('bookingForm');
   const adminForm = document.getElementById('adminForm');
 
+  // Rellenar horarios de 2pm a 5pm en intervalos de 15 minutos
   for (let h = 14; h <= 17; h++) {
     for (let m = 0; m < 60; m += 15) {
       const hora = `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}`;
@@ -14,6 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
+  // Manejar agendar cita
   bookingForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const nombre = bookingForm.nombre.value;
@@ -27,6 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bookingForm.reset();
   });
 
+  // Validar modo admin
   adminForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const clave = adminForm.clave.value;
